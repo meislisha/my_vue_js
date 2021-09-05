@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app" a="tests" style="color:red;font-size:20px;">
+hello --{{name}} ==nihao
+<div class="child"></div>
+    <!-- <ul>
+     
+    </ul> -->
+  </div>
+  <script src="dist/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data(){
+        return {
+        name: [[1,2,3]],
+        // arr:[{name:'lisha',age:23,arr:[1]}],
+        // a:{
+        //   a:1
+        // }
+      }
+      // render:_c('div',{id:'app',a:1},'hello')
+    }
+    })
+//  vm.$mount('#app')
+ 
+setTimeout(() => {
+  vm.name[0].push(456)
+  console.log(vm.name);
+}, 1000);
+    // setTimeout(() => {
+    //   vm.name='111'
+    //   vm.name='222'
+    //   vm.name='333'
+    //   vm.$nextTick(()=>{
+    //     console.log(vm.$el)
+    //   })
+    //   // vm._update(vm._render()); //红心调用render方法，产生虚拟dom，目前还没有diff
+    // }, 1000);
+    // vm._data.a={b:{c:1}}
+    // vm.arr[0].age=1
+    // vm.arr[0].arr.push(8)
+    // console.log(vm.name,vm.arr)
+    // 用户很少同构索引操作数组 arr[82]=1000  内部就想到不对索引进行拦截，因为消耗严重，内部数组不采用defineProperty
+  </script>
+</body>
+
+</html>
